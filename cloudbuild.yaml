@@ -21,6 +21,19 @@ steps:
         'northamerica-northeast2-docker.pkg.dev/gcp-class-14/ritesh-banking-repo/ritesh-bank-backend-image:latest'
       ]
 
+  #Deploy to GKE
+  - name: 'gcr.io/cloud-builders/kubectl'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud container clusters get-credentials ritesh-banking-cluster --region us-central1 --project gcp-class-14
+        
+        kubectl apply -f bank-api-gke/backend.yaml
+        
+        kubectl set image deployment/ritesh-backend-deployment backend=northamerica-northeast2-docker.pkg.dev/gcp-class-14/ritesh-banking-repo/ritesh-bank-backend-image:latest
+        
+        kubectl rollout status deployment/ritesh-backend-deployment
 
 images:
   - 'northamerica-northeast2-docker.pkg.dev/gcp-class-14/ritesh-banking-repo/ritesh-bank-backend-image:latest'
