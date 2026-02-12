@@ -29,7 +29,7 @@ steps:
       - |
         gcloud container clusters get-credentials ritesh-banking-cluster --region us-central1 --project gcp-class-14
         
-        kubectl apply -f bank-api-gke/backend.yaml
+        kubectl apply -f backend.yaml
         
         kubectl set image deployment/ritesh-backend-deployment backend=northamerica-northeast2-docker.pkg.dev/gcp-class-14/ritesh-banking-repo/ritesh-bank-backend-image:latest
         
