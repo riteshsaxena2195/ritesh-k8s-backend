@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("/api/v1/customers")
-@CrossOrigin(origins = "https://my-react-app-135897197036.us-central1.run.app", allowedHeaders = "*")
+@CrossOrigin(origins = "http://136.112.148.33", allowedHeaders = "*")
 public class CustomerController
 {
 	private ICustomerService service;
